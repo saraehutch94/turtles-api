@@ -18,6 +18,10 @@ require("dotenv").config();
 
 const PORT = process.env.PORT;
 
+// Mount middleware
+
+app.use(express.json());
+
 // Mount routes
 
 // home route
@@ -36,8 +40,6 @@ app.get("/turtles", (req, res) => {
 app.get("/turtles/:index", (req, res) => {
   res.json(turtles[req.params.index]);
 });
-
-// Mount middleware
 
 // Tell app to listen on PORT
 app.listen(PORT, () => {
