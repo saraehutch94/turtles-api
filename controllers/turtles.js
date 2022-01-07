@@ -26,4 +26,23 @@ turtlesRouter.get("/", (req, res) => {
   });
 });
 
+// new route
+
+// delete route
+
+// update route
+
+// create route
+turtlesRouter.post("/", (req, res) => {
+  Turtle.create(req.body, (err, newTurtle) => {
+    Turtle.find({}, (err, allTurtles) => {
+      res.json(allTurtles);
+    });
+  });
+});
+
+// edit rotue
+
+// show route
+
 module.exports = turtlesRouter;
