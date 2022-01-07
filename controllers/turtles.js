@@ -31,6 +31,13 @@ turtlesRouter.get("/", (req, res) => {
 // delete route
 
 // update route
+turtlesRouter.put("/:id", (req, res) => {
+  Turtle.findByIdAndUpdate(req.params.id, (err, updatedTurtle) => {
+    Turtle.find({}, (error, allTurtles) => {
+      res.json(allTurtles);
+    });
+  });
+});
 
 // create route
 turtlesRouter.post("/", (req, res) => {
@@ -41,8 +48,13 @@ turtlesRouter.post("/", (req, res) => {
   });
 });
 
-// edit rotue
+// edit route
 
 // show route
+turtlesRouter.get("/:id", (req, res) => {
+  Turtle.findById(req.params.id, (err, foundTurtle) => {
+    res.json(foundTurtle);
+  });
+});
 
 module.exports = turtlesRouter;
