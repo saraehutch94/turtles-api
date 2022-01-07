@@ -5,14 +5,6 @@ const mongoose = require("mongoose");
 // Initialize application
 const app = express();
 
-// Turtle data
-const turtles = [
-  { name: "Leonardo", role: "ninja" },
-  { name: "Michaelangelo", role: "ninja" },
-  { name: "Donatello", role: "ninja" },
-  { name: "Raphael", role: "ninja" },
-];
-
 // Configure application settings
 
 require("dotenv").config();

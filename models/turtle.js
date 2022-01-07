@@ -14,4 +14,6 @@ const turtleSchema = new Schema(
   { timestamps: true }
 );
 
+// Export Turtle model
+
 module.exports = mongoose.model("Turtle", turtleSchema);
