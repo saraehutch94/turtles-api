@@ -29,22 +29,23 @@ turtlesRouter.get("/", (req, res) => {
 // new route
 
 // delete route
+turtlesRouter.delete("/:id", (req, res) => {
+  Turtle.findByIdAndDelete(req.params.id, (error, deletedTurtle) => {
+    res.redirect("/turtles");
+  });
+});
 
 // update route
 turtlesRouter.put("/:id", (req, res) => {
   Turtle.findByIdAndUpdate(req.params.id, (err, updatedTurtle) => {
-    Turtle.find({}, (error, allTurtles) => {
-      res.json(allTurtles);
-    });
+    res.redirect("/turtles");
   });
 });
 
 // create route
 turtlesRouter.post("/", (req, res) => {
   Turtle.create(req.body, (err, newTurtle) => {
-    Turtle.find({}, (err, allTurtles) => {
-      res.json(allTurtles);
-    });
+    res.json(allTurtles);
   });
 });
 
