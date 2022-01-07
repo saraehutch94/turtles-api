@@ -11,10 +11,19 @@ const Turtle = require("../models/Turtle");
 const turtleSeed = require("../models/turtleSeed");
 
 // seed route
-turtlesRouter.get("/turtles/seed", (req, res) => {
+turtlesRouter.get("/seed", (req, res) => {
   Turtle.deleteMany({}, (err, deletedTurtles) => {
     Turtle.create(turtleSeed, (err, allTurtles) => {
       res.redirect("/turtles");
     });
   });
 });
+
+// index route
+turtlesRouter.get("/", (req, res) => {
+  Turtle.find({}, (err, allTurtles) => {
+    res.json(allTurtles);
+  });
+});
+
+module.exports = turtlesRouter;
