@@ -12,6 +12,13 @@ const PORT = process.env.PORT;
 
 // Mount routes
 
+// home route
+app.get("/", (req, res) => {
+  res.json({
+    response: "Hello World!",
+  });
+});
+
 // Mount middleware
 
 // Tell app to listen on PORT
