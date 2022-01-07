@@ -31,15 +31,20 @@ turtlesRouter.get("/", (req, res) => {
 // delete route --> ERROR (not rendering json)
 turtlesRouter.delete("/:id", (req, res) => {
   Turtle.findByIdAndDelete(req.params.id, (error, deletedTurtle) => {
-    res.redirect("/turtles");
+    res.json(deletedTurtle);
   });
 });
 
 // update route --> ERROR (not rendering json)
 turtlesRouter.put("/:id", (req, res) => {
-  Turtle.findByIdAndUpdate(req.params.id, (err, updatedTurtle) => {
-    res.redirect("/turtles");
-  });
+  Turtle.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedTurtle) => {
+      res.json(updatedTurtle);
+    }
+  );
 });
 
 // create route
