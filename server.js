@@ -32,6 +32,11 @@ app.get("/turtles", (req, res) => {
   res.json(turtles);
 });
 
+// show route
+app.get("/turtles/:index", (req, res) => {
+  res.json(turtles[req.params.index]);
+});
+
 // Mount middleware
 
 // Tell app to listen on PORT
