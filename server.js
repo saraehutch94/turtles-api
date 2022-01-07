@@ -17,7 +17,7 @@ const turtles = [
 
 require("dotenv").config();
 
-const PORT = process.env.PORT;
+const { DATABASE_URL, PORT } = process.env;
 
 // Mount middleware
 
