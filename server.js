@@ -36,6 +36,12 @@ app.get("/turtles", (req, res) => {
   res.json(turtles);
 });
 
+// delete route
+app.delete("/turtles/:id", (req, res) => {
+  turtles.splice(req.params.id, 1);
+  res.json(turtles);
+});
+
 // update route
 app.put("/turtles/:id", (req, res) => {
   turtles[req.params.id] = req.body;
