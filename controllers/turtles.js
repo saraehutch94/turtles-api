@@ -28,14 +28,14 @@ turtlesRouter.get("/", (req, res) => {
 
 // new route
 
-// delete route
+// delete route --> ERROR (not rendering json)
 turtlesRouter.delete("/:id", (req, res) => {
   Turtle.findByIdAndDelete(req.params.id, (error, deletedTurtle) => {
     res.redirect("/turtles");
   });
 });
 
-// update route
+// update route --> ERROR (not rendering json)
 turtlesRouter.put("/:id", (req, res) => {
   Turtle.findByIdAndUpdate(req.params.id, (err, updatedTurtle) => {
     res.redirect("/turtles");
@@ -51,7 +51,7 @@ turtlesRouter.post("/", (req, res) => {
 
 // edit route
 
-// show route
+// show route --> ERROR (not rendering json)
 turtlesRouter.get("/:id", (req, res) => {
   Turtle.findById(req.params.id, (err, foundTurtle) => {
     res.json(foundTurtle);
