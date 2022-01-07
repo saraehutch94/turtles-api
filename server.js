@@ -1,5 +1,6 @@
 // Require dependencies
 const express = require("express");
+const mongoose = require("mongoose");
 
 // Initialize application
 const app = express();
