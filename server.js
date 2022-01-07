@@ -36,6 +36,12 @@ app.get("/turtles", (req, res) => {
   res.json(turtles);
 });
 
+// create route
+app.post("/turtles", (req, res) => {
+  turtles.push(req.body);
+  res.json(turtles);
+});
+
 // show route
 app.get("/turtles/:index", (req, res) => {
   res.json(turtles[req.params.index]);
