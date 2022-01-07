@@ -37,8 +37,8 @@ app.get("/turtles", (req, res) => {
 });
 
 // update route
-app.put("/turtles/:index", (req, res) => {
-  turtles[req.params.index] = req.body;
+app.put("/turtles/:id", (req, res) => {
+  turtles[req.params.id] = req.body;
   res.json(turtles);
 });
 
@@ -49,8 +49,8 @@ app.post("/turtles", (req, res) => {
 });
 
 // show route
-app.get("/turtles/:index", (req, res) => {
-  res.json(turtles[req.params.index]);
+app.get("/turtles/:id", (req, res) => {
+  res.json(turtles[req.params.id]);
 });
 
 // Tell app to listen on PORT
